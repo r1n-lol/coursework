@@ -1,0 +1,133 @@
+@font-face {
+  font-family: "Unbounded-VariableFont_wght";
+  src: url("../media/fonts/Unbounded-VariableFont_wght.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Unbounded-ExtraBold";
+  src: url("../media/fonts/Unbounded-ExtraBold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+
+/* Сброс базовых стилей */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:"Unbounded-VariableFont_wght";
+}
+
+
+/* Фон страницы */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    /* background: rgb(237, 235, 220); */
+    background: rgb(237, 235, 220);
+}
+
+/* Основной блок формы */
+main {
+    width: 100%;
+    max-width: 400px;
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    padding: 40px 30px;
+}
+
+/* Заголовок */
+.login-title {
+    text-align: center;
+    font-size: 28px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+/* Группы полей */
+.form-group {
+    margin-bottom: 20px;
+    position: relative;
+}
+
+/* Поля ввода */
+.form-group input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+/* Состояние фокуса */
+.form-group input:focus {
+    border-color:orange;
+    outline: none;
+}
+
+/* Ошибки */
+.form-group.error input {
+    border-color: #e53935;
+}
+
+.error-message {
+    color: #e53935;
+    font-size: 14px;
+    margin-top: 5px;
+    display: block;
+}
+
+/* Кнопка входа */
+.btn-auth {
+    width: 100%;
+    padding: 12px;
+    background-color:orange;
+    border: none;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-auth:hover {
+    background-color: #ffb300;
+    transform: scale(1.03);
+}
+
+/* Ссылка на регистрацию */
+form a {
+    display: block;
+    text-align: center;
+    margin-top: 15px;
+    color:orange;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+form a:hover {
+    text-decoration: underline;
+}
+
+/* Адаптив */
+@media (max-width: 500px) {
+    main {
+        padding: 30px 20px;
+    }
+    .login-title {
+        font-size: 24px;
+    }
+    .btn-auth {
+        font-size: 16px;
+    }
+}
