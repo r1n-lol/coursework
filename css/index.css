@@ -1,0 +1,186 @@
+/* .slider img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+} */
+.slider {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* контейнер слайдов */
+.slides {
+  transition: transform 0.6s ease;
+  display: flex;
+}
+
+.slide {
+  width: 100%;
+  aspect-ratio: 1600/550;
+  display: flex;
+  overflow: hidden;
+  flex-shrink: 0;
+
+  margin-top: clamp(15px, 10vw, 140px);
+  position: relative;
+
+  background-image: url("../media/imgs/slide-1.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  transition:
+    transform 0.5s ease,
+    opacity 0.5s ease;
+}
+
+.slide.active {
+  background-image: url("../media/imgs/slide-1.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.slide.two {
+  background-image: url("../media/imgs/slide-2.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.slide.tree {
+  background-image: url("../media/imgs/slide-3.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* точки */
+
+.dots {
+  position: absolute;
+  bottom: clamp(5px, 1vw, 10px);
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+}
+
+.dot {
+  width: clamp(2px, 0.5vw, 12px);
+  height: clamp(2px, 0.5vw, 12px);
+  border-radius: 50%;
+  background: orange;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.dot.active {
+  width: clamp(15px, 3vw, 35px);
+  border-radius: 20px;
+  background: orange;
+}
+
+@media (max-width: 768px) {
+  .dots {
+    gap: 5px;
+  }
+}
+
+.container-cart {
+  margin-top: clamp(40px, 1.5vw, 70px);
+  display: flex;
+  gap: 20px;
+}
+
+/* левая большая картинка */
+.big-cart-conteiner {
+  flex: 2; /* узкая по ширине */
+  position: relative;
+}
+
+/* правая колонка с двумя маленькими */
+.lit-cartconteiner {
+  flex: 2; /* пошире правые блоки */
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* сами маленькие блоки */
+.lit-cont-top,
+.lit-cont-bottom {
+  position: relative;
+}
+
+/* картинки */
+.big-cart-conteiner img {
+  width: 100%;
+  height: 530px; /* выше, чем маленькие */
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.lit-cont-top img,
+.lit-cont-bottom img {
+  width: 100%;
+  height: 250px; /* ниже, чем большая */
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* текст закреплен на фото */
+.big-cart-caption,
+.lit-cart-caption {
+  position: absolute;
+  bottom: 50px;
+  left: 20px;
+  color: white;
+  max-width: 70%;
+}
+
+.big-cart-caption {
+  bottom: 70px;
+}
+
+.cart-p {
+  color: white;
+  font-size: clamp(9px, 1vw, 16px);
+  font-family: "Unbounded-VariableFont_wght", sans-serif;
+}
+
+.cart-title {
+  font-family: "Unbounded-VariableFont_wght", sans-serif;
+  font-size: clamp(16px, 2vw, 30px);
+}
+
+.cart-btn {
+  display: inline-block;
+  padding: 5px 10px;
+  background-color: orange;
+  border-radius: 10px;
+  font-size: clamp(8px, 1vw, 14px);
+  transition: 0.3s ease-in;
+}
+
+.cart-btn:hover {
+  background-color: rgb(255, 181, 43);
+  transform: scale(1.1);
+}
+
+/* адаптив */
+@media (max-width: 900px) {
+  .container-cart {
+    flex-direction: column;
+  }
+
+  .big-cart-conteiner img {
+    height: 350px;
+  }
+
+  .lit-cont-top img,
+  .lit-cont-bottom img {
+    height: 180px;
+  }
+}

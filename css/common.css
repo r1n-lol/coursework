@@ -1,0 +1,323 @@
+@font-face {
+  font-family: "Unbounded-VariableFont_wght";
+  src: url("../media/fonts/Unbounded-VariableFont_wght.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Unbounded-ExtraBold";
+  src: url("../media/fonts/Unbounded-ExtraBold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Unbounded-ExtraBold", sans-serif;
+}
+
+p {
+  font-size: 14px;
+  font-weight: bold;
+  color: orange;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+main {
+  max-width: 1200px;
+  width: 90%;
+  margin: 0 auto;
+}
+
+/* ШАПКА */
+
+header {
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 2000;
+}
+
+.logo img {
+  width: clamp(50px, 40vw, 500px);
+  margin: 0 3vw;
+  height: auto;
+}
+
+.logo {
+  flex: 0 0 auto;
+}
+
+/* ИЗОБРАЖЕНИЕ ССЫЛОК */
+
+nav {
+  display: flex;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto; /* ВОТ ЭТО центрирует */
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  z-index: 2000;
+}
+
+.nav-link,
+.nav-item {
+  flex: 1 1 0;
+  min-width: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-image: url("../media/imgs/nav-slot.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100% 100%;
+
+  aspect-ratio: 3 / 1; /* сохраняет пропорции */
+  height: 80px;
+  transition: 0.2s ease-in;
+}
+
+.nav-link:hover {
+  filter: drop-shadow(0px 4px 6px rgba(0, 0, 0, 0.3));
+}
+
+.nav-link a {
+  text-decoration: none;
+  color: black;
+}
+
+.nav-link a {
+  font-size: clamp(5px, 0.9vw, 18px);
+  color: black;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.nav-link a {
+  padding: 10px 15px;
+}
+
+.nav-item {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+}
+
+/* ВСПЛЫВАЮЩЕЕ МЕНЮ */
+
+.dropdown {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: rgb(237, 235, 220);
+  box-shadow: 0 5px 14px rgba(0, 0, 0, 0.149);
+  border-radius: 8px;
+  padding: 10px 0;
+  width: 100%;
+  max-width: 100%;
+  transition: 0.2s ease-in;
+}
+
+.dropdown a {
+  display: block;
+  padding: 5px 8px;
+  text-decoration: none;
+  color: black;
+  font-size: clamp(5px, 0.9vw, 14px);
+  transition: 0.2s ease-in;
+  white-space: nowrap;
+}
+
+.dropdown a:hover {
+  background: rgba(233, 174, 128, 0.906);
+}
+
+.nav-item:hover .dropdown {
+  opacity: 1;
+  visibility: visible;
+}
+/* Бургер */
+.burger {
+  position: absolute;
+  top: 10%;
+  right: 20px; /* отступ справа */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+
+  position: absolute;
+  width: 40px;
+  height: 30px;
+
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 2002;
+}
+
+.burger span {
+  position: absolute;
+  width: 100%;
+  height: 6px;
+  background: orange;
+  border-radius: 3px;
+  transition: 0.3s;
+}
+
+/* Логотип по центру */
+.logo {
+  flex: 0 1 auto;
+  margin: 0 auto; /* центрируем */
+}
+
+.burger span:nth-child(1) {
+  top: 0;
+}
+.burger span:nth-child(2) {
+  top: 12px;
+}
+.burger span:nth-child(3) {
+  bottom: 0;
+}
+
+.burger.active span:nth-child(1) {
+  top: 12px;
+  transform: rotate(45deg);
+}
+
+.burger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.burger.active span:nth-child(3) {
+  bottom: 12px;
+  transform: rotate(-45deg);
+}
+
+.side-menu {
+  position: fixed;
+  top: 0;
+  right: -350px;
+  width: 10vw;
+  height: 100vh;
+  background-color: rgb(237, 235, 220);
+  display: flex;
+  flex-direction: column;
+  padding: 60px 10px 10px 10px;
+  gap: 15px;
+  transition: right 0.3s ease;
+  z-index: 2001; /* выше логотипа и бургер */
+}
+
+.side-menu a {
+  font-size: clamp(4px, 2vw, 18px);
+  display: block;
+  transition: 0.2s ease-in;
+}
+
+.side-menu a:hover {
+  transform: scale(1.10);
+}
+
+.side-menu.active {
+  right: 0;
+}
+
+/* Мобильное скрытие кнопок */
+@media (max-width: 1023px) {
+  .nav-link,
+  .nav-item {
+    display: none; /* скрываем ссылки */
+  }
+
+  nav.active .nav-link,
+  nav.active .nav-item {
+    display: flex; /* показываем при открытии */
+    flex-direction: column;
+    width: 100%;
+    margin-top: 5px;
+  }
+
+  .dropdown {
+    position: static;
+    width: 100%;
+    box-shadow: none;
+  }
+
+  .dropdown a {
+    text-align: center;
+  }
+}
+
+footer {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-main {
+  display: flex;
+  justify-content: space-between;
+  margin-top: clamp(70px, 1vh, 100px);
+  flex-wrap: wrap;
+}
+
+.footer-cart {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-cart a {
+  font-size: clamp(4px, 2vw, 16px);
+  color: rgb(140, 140, 140);
+  transition: 0.2s ease-in;
+}
+
+.footer-cart a:hover {
+  color: rgb(197, 197, 197);
+}
+
+.link-f:hover {
+  color: rgb(140, 140, 140);
+}
+.footer-cart h2 {
+  color: black;
+  font-size: clamp(8px, 2vw, 20px);
+}
+
+.link-f {
+  transition: 0.2s ease-in;
+}
+
+.footer-cart.soc {
+  display: flex;
+  align-items: center;
+}
+
+.soc-a {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.footer-img {
+  display: flex;
+  justify-content: center;
+  margin-top: clamp(10px, 2vw, 30px);
+  margin-bottom: clamp(10px, 3vw, 60px);
+}
