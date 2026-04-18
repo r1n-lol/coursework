@@ -16,38 +16,38 @@
         <div class="dots"></div>
     </div>
 
-    <main>
-        <div class="container-cart">
-            <div class="big-cart-conteiner">
+    <main class="home-main">
+        <section class="container-cart">
+            <div class="big-cart-conteiner home-card home-card--large">
                 <img src="{{ asset('media/images/big-cart.webp') }}" alt="">
-                <div class="big-cart-caption">
+                <div class="big-cart-caption home-card__caption">
                     <h1 class="cart-title">На любой вкус</h1>
                     <p class="cart-p big">Выбирайте что пить и где прямо сейчас.</p>
                 </div>
             </div>
             <div class="lit-cartconteiner">
-                <div class="lit-cont-top">
+                <div class="lit-cont-top home-card">
                     <img src="{{ asset('media/images/menu.jpg') }}" alt="">
-                    <div class="lit-cart-caption">
+                    <div class="lit-cart-caption home-card__caption">
                         <h1 class="cart-title">Меню</h1>
                         <p class="cart-p">
-                            Ознакомтесь с меню на сайте
+                            Ознакомьтесь с меню на сайте
                             или приходите в гости.
                         </p>
-                        <a href="/" class="cart-btn">Подробнее</a>
+                        <a href="{{ route('menu') }}" class="cart-btn">Смотреть</a>
                     </div>
                 </div>
-                <div class="lit-cont-bottom">
+                <div class="lit-cont-bottom home-card">
                     <img src="{{ asset('media/images/home-coffee.jpg') }}" alt="">
-                    <div class="lit-cart-caption">
+                    <div class="lit-cart-caption home-card__caption">
                         <h1 class="cart-title">Домой</h1>
-                        <p class="cart-p">Кофе для домй — в зёрнах или молотый.
+                        <p class="cart-p">Кофе для дома — в зёрнах или молотый.
                             Заваривайте свежий кофе у себя дома </p>
-                        <a href="/" class="cart-btn">Подробнее</a>
+                        <a href="{{ route('home') }}" class="cart-btn">Подробнее</a>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
     </main>
 
 

@@ -35,8 +35,6 @@ main {
   margin: 0 auto;
 }
 
-/* ШАПКА */
-
 header {
   display: flex;
   justify-content: center;
@@ -54,16 +52,15 @@ header {
 }
 
 .logo {
-  flex: 0 0 auto;
+  flex: 0 1 auto;
+  margin: 0 auto;
 }
-
-/* ИЗОБРАЖЕНИЕ ССЫЛОК */
 
 nav {
   display: flex;
   max-width: 1200px;
   width: 100%;
-  margin: 0 auto; /* ВОТ ЭТО центрирует */
+  margin: 0 auto;
   align-items: center;
   justify-content: space-between;
   gap: 10px;
@@ -77,13 +74,11 @@ nav {
   display: flex;
   justify-content: center;
   align-items: center;
-
   background-image: url("../media/images/nav-slot.svg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: 100% 100%;
-
-  aspect-ratio: 3 / 1; /* сохраняет пропорции */
+  aspect-ratio: 3 / 1;
   height: 80px;
   transition: 0.2s ease-in;
 }
@@ -95,16 +90,9 @@ nav {
 .nav-link a {
   text-decoration: none;
   color: black;
-}
-
-.nav-link a {
   font-size: clamp(5px, 0.9vw, 18px);
-  color: black;
   font-weight: 600;
   white-space: nowrap;
-}
-
-.nav-link a {
   padding: 10px 15px;
 }
 
@@ -113,8 +101,6 @@ nav {
   flex: 1;
   min-width: 0;
 }
-
-/* ВСПЛЫВАЮЩЕЕ МЕНЮ */
 
 .dropdown {
   opacity: 0;
@@ -151,19 +137,16 @@ nav {
   opacity: 1;
   visibility: visible;
 }
-/* Бургер */
+
 .burger {
   position: absolute;
-  top: 10%;
-  right: 20px; /* отступ справа */
+  top: clamp(10px, 1.2vw, 18px);
+  right: clamp(12px, 2vw, 24px);
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-
-  position: absolute;
-  width: 40px;
-  height: 30px;
-
+  width: clamp(30px, 4.1vw, 40px);
+  height: clamp(28px, 4.1vw, 38px);
   background: transparent;
   border: none;
   cursor: pointer;
@@ -171,33 +154,99 @@ nav {
   z-index: 2002;
 }
 
+.header-shortcuts {
+  position: absolute;
+  top: clamp(8px, 1.1vw, 16px);
+  right: clamp(56px, 7.8vw, 82px);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  z-index: 2002;
+}
+
+.cart-shortcut,
+.admin-panel-shortcut {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: clamp(30px, 3.2vw, 42px);
+  padding: 0 clamp(12px, 1.3vw, 18px);
+  border-radius: 12px;
+  background: orange;
+  color: white;
+  font-family: "Unbounded-VariableFont_wght", sans-serif;
+  font-size: clamp(10px, 0.9vw, 14px);
+  line-height: 1;
+  box-shadow: 0 10px 24px rgba(255, 166, 33, 0.28);
+  transition:
+    transform 0.2s ease-in,
+    filter 0.2s ease-in;
+}
+
+.cart-shortcut {
+  position: relative;
+  min-width: clamp(30px, 3.2vw, 42px);
+  padding: 0;
+}
+
+.cart-shortcut svg {
+  width: clamp(16px, 1.2vw, 20px);
+  height: clamp(16px, 1.2vw, 20px);
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.cart-shortcut__count {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 4px;
+  border-radius: 999px;
+  background: white;
+  color: #a15f0d;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-family: "Unbounded-ExtraBold", sans-serif;
+  line-height: 1;
+  box-sizing: border-box;
+}
+
+.cart-shortcut:hover,
+.admin-panel-shortcut:hover {
+  transform: translateY(-1px);
+  filter: brightness(0.98);
+}
+
 .burger span {
   position: absolute;
   width: 100%;
-  height: 6px;
+  height: clamp(3px, 0.45vw, 5px);
   background: orange;
-  border-radius: 3px;
+  border-radius: 999px;
   transition: 0.3s;
 }
 
-/* Логотип по центру */
-.logo {
-  flex: 0 1 auto;
-  margin: 0 auto; /* центрируем */
+.burger span:nth-child(1) {
+  top: clamp(4px, 0.5vw, 6px);
 }
 
-.burger span:nth-child(1) {
-  top: 0;
-}
 .burger span:nth-child(2) {
-  top: 12px;
+  top: calc(50% - (clamp(3px, 0.45vw, 5px) / 2));
 }
+
 .burger span:nth-child(3) {
-  bottom: 0;
+  bottom: clamp(4px, 0.5vw, 6px);
 }
 
 .burger.active span:nth-child(1) {
-  top: 12px;
+  top: calc(50% - (clamp(3px, 0.45vw, 5px) / 2));
   transform: rotate(45deg);
 }
 
@@ -206,49 +255,95 @@ nav {
 }
 
 .burger.active span:nth-child(3) {
-  bottom: 12px;
+  bottom: calc(50% - (clamp(3px, 0.45vw, 5px) / 2));
   transform: rotate(-45deg);
 }
 
 .side-menu {
   position: fixed;
   top: 0;
-  right: -350px;
-  width: 10vw;
+  right: min(-100%, -320px);
+  width: min(74vw, 280px);
   height: 100vh;
-  background-color: rgb(237, 235, 220);
+  background: linear-gradient(180deg, rgb(244, 241, 232) 0%, rgb(237, 235, 220) 100%);
   display: flex;
   flex-direction: column;
-  padding: 60px 10px 10px 10px;
-  gap: 15px;
+  padding: 84px 18px 20px;
+  gap: 8px;
+  box-sizing: border-box;
+  border-left: 1px solid rgba(222, 170, 106, 0.28);
+  box-shadow: -18px 0 40px rgba(52, 35, 8, 0.14);
   transition: right 0.3s ease;
-  z-index: 2001; /* выше логотипа и бургер */
+  z-index: 2001;
 }
 
 .side-menu a {
-  font-size: clamp(4px, 2vw, 18px);
-  display: block;
-  transition: 0.2s ease-in;
+  font-size: clamp(14px, 1.5vw, 18px);
+  display: flex;
+  align-items: center;
+  min-height: 46px;
+  padding: 0 14px;
+  border-radius: 12px;
+  font-family: "Unbounded-VariableFont_wght", sans-serif;
+  transition:
+    transform 0.2s ease-in,
+    background-color 0.2s ease-in,
+    color 0.2s ease-in;
 }
 
 .side-menu a:hover {
-  transform: scale(1.10);
+  transform: translateX(4px);
+  background-color: rgba(255, 166, 33, 0.12);
+  color: rgb(160, 95, 13);
 }
 
 .side-menu.active {
   right: 0;
 }
 
-/* Мобильное скрытие кнопок */
+.side-menu form {
+  margin: 0;
+}
+
+.logout-btn {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-height: 46px;
+  box-sizing: border-box;
+  padding: 0 14px;
+  appearance: none;
+  border: none;
+  border-radius: 12px;
+  background: transparent;
+  text-align: left;
+  color: black;
+  font-family: "Unbounded-VariableFont_wght", sans-serif;
+  font-size: clamp(14px, 1.5vw, 18px);
+  font-weight: 400;
+  line-height: 1.2;
+  cursor: pointer;
+  transition:
+    transform 0.2s ease-in,
+    background-color 0.2s ease-in,
+    color 0.2s ease-in;
+}
+
+.logout-btn:hover {
+  transform: translateX(4px);
+  background-color: rgba(255, 166, 33, 0.12);
+  color: rgb(160, 95, 13);
+}
+
 @media (max-width: 1023px) {
   .nav-link,
   .nav-item {
-    display: none; /* скрываем ссылки */
+    display: none;
   }
 
   nav.active .nav-link,
   nav.active .nav-item {
-    display: flex; /* показываем при открытии */
+    display: flex;
     flex-direction: column;
     width: 100%;
     margin-top: 5px;
@@ -262,6 +357,59 @@ nav {
 
   .dropdown a {
     text-align: center;
+  }
+}
+
+@media (max-width: 640px) {
+  .header-shortcuts {
+    top: 8px;
+    right: clamp(48px, 14vw, 66px);
+    gap: 8px;
+  }
+
+  .cart-shortcut,
+  .admin-panel-shortcut {
+    min-height: 28px;
+    border-radius: 10px;
+  }
+
+  .cart-shortcut {
+    min-width: 28px;
+  }
+
+  .admin-panel-shortcut {
+    padding: 0 10px;
+    font-size: 10px;
+  }
+
+  .cart-shortcut svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  .cart-shortcut__count {
+    top: -5px;
+    right: -5px;
+    min-width: 16px;
+    height: 16px;
+    font-size: 9px;
+  }
+
+  .burger {
+    width: clamp(28px, 8vw, 34px);
+    height: clamp(22px, 6vw, 28px);
+  }
+
+  .side-menu {
+    width: min(72vw, 250px);
+    padding: 72px 12px 16px;
+  }
+
+  .side-menu a,
+  .logout-btn {
+    min-height: 38px;
+    padding: 0 10px;
+    font-size: 14px;
   }
 }
 
@@ -295,6 +443,7 @@ footer {
 .link-f:hover {
   color: rgb(140, 140, 140);
 }
+
 .footer-cart h2 {
   color: black;
   font-size: clamp(8px, 2vw, 20px);

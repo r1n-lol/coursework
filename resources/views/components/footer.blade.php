@@ -2,25 +2,19 @@
     <div class="footer-main">
         <div class="footer-cart">
             <h2>КОФЕ</h2>
-            <a href="/">меню</a>
-            <a href="/">домой</a>
+            <a href="{{ route('menu') }}">меню</a>
+            <a href="{{ route('home') }}">домой</a>
         </div>
         <div class="footer-cart">
-            <a href="/">
-                <h2 class="link-f">КЭШБЭК</h2>
+            <a href="{{ route('cashback') }}">
+                <h2 class="link-f">КЭШБЕК</h2>
             </a>
-            <a href="/">программа лояльности</a>
+            <a href="{{ route('cashback') }}">программа лояльности</a>
         </div>
         <div class="footer-cart">
             <h2>КТО МЫ</h2>
-            <a href="/">о нас</a>
-            <a href="/">контакты</a>
-        </div>
-        <div class="footer-cart">
-            <a href="/">
-                <h2 class="link-f">АКЦИИ</h2>
-            </a>
-            <a href="/">выгодно и вкусно</a>
+            <a href="{{ route('about') }}">про нас</a>
+            <a href="{{ route('contacts') }}">связь</a>
         </div>
 
         <div class="footer-cart soc">

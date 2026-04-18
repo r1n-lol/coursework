@@ -13,6 +13,9 @@
     <main>
         <form action="{{ route('login') }}" method="POST">
             @csrf
+            @if (!empty($redirectTo))
+                <input type="hidden" name="redirect" value="{{ $redirectTo }}">
+            @endif
             <h1 class="login-title">ВХОД</h1>
             <div class="form-group {{ $errors->has('email') ? 'error' : '' }} ">
                 <input type="email" name="email" value="{{ old('email') }}" placeholder="email" required>
@@ -29,7 +32,7 @@
             </div>
 
             <button type="submit" class="btn-auth">войти</button>
-            <a href="{{ route('register') }}">нет аккаунат?</a>
+            <a href="{{ route('register', $redirectTo ? ['redirect' => $redirectTo] : []) }}">нет аккаунат?</a>
         </form>
     </main>
 </body>

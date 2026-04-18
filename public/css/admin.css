@@ -1,0 +1,460 @@
+@font-face {
+  font-family: "Unbounded-VariableFont_wght";
+  src: url("../media/fonts/Unbounded-VariableFont_wght.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  margin: 0;
+  background: rgb(244, 241, 232);
+  color: black;
+  font-family: "Unbounded-VariableFont_wght", sans-serif;
+}
+
+.admin-page {
+  max-width: 1200px;
+  width: 90%;
+  margin: 40px auto 60px;
+}
+
+.admin-topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 20px;
+  margin-bottom: 24px;
+}
+
+.admin-topbar h1,
+.admin-card h2 {
+  margin: 0;
+}
+
+.admin-kicker {
+  display: inline-block;
+  margin: 0 0 12px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: white;
+  color: orange;
+  font-size: 13px;
+}
+
+.admin-topbar__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.admin-button,
+.admin-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0 18px;
+  box-sizing: border-box;
+  border: none;
+  border-radius: 12px;
+  background: orange;
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+  font-family: "Unbounded-VariableFont_wght", sans-serif;
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.admin-button:hover,
+.admin-link:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 24px rgba(77, 65, 46, 0.1);
+}
+
+.admin-button--ghost {
+  background: white;
+  color: #4d412e;
+}
+
+.admin-button--danger,
+.admin-link--danger {
+  background: #d85f3f;
+  color: white;
+}
+
+.admin-notice,
+.admin-card {
+  background: white;
+  border: 1px solid rgba(77, 65, 46, 0.12);
+  border-radius: 24px;
+}
+
+.admin-notice {
+  padding: 16px 20px;
+  margin-bottom: 20px;
+  color: #4d412e;
+}
+
+.admin-card {
+  padding: 24px;
+}
+
+.admin-orders {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.admin-card__head {
+  margin-bottom: 18px;
+}
+
+.admin-table-wrap {
+  overflow-x: auto;
+}
+
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.admin-table th,
+.admin-table td {
+  padding: 14px 12px;
+  border-bottom: 1px solid rgba(77, 65, 46, 0.1);
+  text-align: left;
+  font-size: 14px;
+}
+
+.admin-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.admin-actions form {
+  margin: 0;
+}
+
+.admin-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.admin-order__head,
+.admin-order__item,
+.admin-order__footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.admin-order__head {
+  align-items: flex-start;
+  padding-bottom: 18px;
+  border-bottom: 1px solid rgba(77, 65, 46, 0.08);
+}
+
+.admin-order__summary {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.admin-order__badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.admin-order__badge,
+.admin-order__detail-label {
+  display: inline-flex;
+  align-items: center;
+  min-height: 30px;
+  padding: 0 12px;
+  border-radius: 999px;
+  background: rgb(244, 241, 232);
+  color: #a15f0d;
+  font-size: 12px;
+}
+
+.admin-order__meta {
+  margin: 0;
+  color: #4d412e;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.admin-status-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 0;
+  min-width: min(100%, 240px);
+  max-width: 280px;
+  flex: 0 1 280px;
+}
+
+.admin-status-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 0;
+  padding: 16px;
+  border-radius: 18px;
+  background: rgb(250, 248, 242);
+  border: 1px solid rgba(77, 65, 46, 0.08);
+  box-sizing: border-box;
+}
+
+.admin-order__delete-form {
+  margin: 0;
+}
+
+.admin-order__delete-form .admin-button {
+  width: 100%;
+}
+
+.admin-order__status {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  min-height: 34px;
+  margin-top: 10px;
+  padding: 0 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-family: "Unbounded-VariableFont_wght", sans-serif;
+  box-sizing: border-box;
+  max-width: 100%;
+  white-space: normal;
+}
+
+.status-new,
+.status-accepted,
+.status-in_progress,
+.status-preparing {
+  background: rgb(237, 235, 220);
+  color: #a15f0d;
+}
+
+.status-ready {
+  background: rgba(120, 190, 113, 0.15);
+  color: #4d8d45;
+}
+
+.status-on_the_way,
+.status-at_door {
+  background: rgba(88, 138, 214, 0.12);
+  color: #3c68b1;
+}
+
+.status-done {
+  background: rgba(120, 190, 113, 0.15);
+  color: #4d8d45;
+}
+
+.status-cancelled {
+  background: rgba(220, 90, 67, 0.12);
+  color: #b64c2c;
+}
+
+.admin-order__items {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.admin-order__details {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+  gap: 14px;
+  margin-top: 18px;
+}
+
+.admin-order__detail-card {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 16px;
+  border-radius: 18px;
+  background: rgb(250, 248, 242);
+  border: 1px solid rgba(77, 65, 46, 0.08);
+  box-sizing: border-box;
+}
+
+.admin-order__detail-card strong,
+.admin-order__detail-card .admin-order__meta {
+  min-width: 0;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.admin-order__section-title {
+  margin: 0 0 6px;
+  font-size: 15px;
+  color: #4d412e;
+}
+
+.admin-order__item,
+.admin-order__footer {
+  color: #4d412e;
+  font-size: 14px;
+}
+
+.admin-order__item {
+  align-items: center;
+  padding: 14px 16px;
+  border-radius: 16px;
+  background: rgb(250, 248, 242);
+  border: 1px solid rgba(77, 65, 46, 0.08);
+}
+
+.admin-order__item-info {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.admin-order__item-info strong,
+.admin-order__item-price {
+  color: #24190e;
+}
+
+.admin-order__footer {
+  margin-top: 18px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(77, 65, 46, 0.1);
+}
+
+.admin-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.admin-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.admin-field input,
+.admin-field select,
+.admin-field textarea {
+  width: 100%;
+  min-width: 0;
+  padding: 12px 14px;
+  box-sizing: border-box;
+  border: 1px solid rgba(77, 65, 46, 0.14);
+  border-radius: 14px;
+  font-size: 14px;
+  font-family: "Unbounded-VariableFont_wght", sans-serif;
+}
+
+.admin-link {
+  border: none;
+  font-family: "Unbounded-VariableFont_wght", sans-serif;
+}
+
+.admin-field small {
+  color: #8d7659;
+}
+
+.admin-image-preview {
+  width: min(100%, 260px);
+  padding: 12px;
+  border: 1px solid rgba(77, 65, 46, 0.12);
+  border-radius: 18px;
+  background: rgb(244, 241, 232);
+  box-sizing: border-box;
+}
+
+.admin-image-preview img {
+  display: block;
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.admin-field--checkbox {
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+
+.admin-field--checkbox input {
+  width: auto;
+}
+
+.admin-errors {
+  padding: 16px 18px;
+  border-radius: 16px;
+  background: rgba(220, 90, 67, 0.08);
+  color: #b64c2c;
+}
+
+.admin-errors p {
+  margin: 0;
+}
+
+.admin-errors p + p {
+  margin-top: 8px;
+}
+
+@media (max-width: 768px) {
+  .admin-page {
+    width: 92%;
+  }
+
+  .admin-topbar {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .admin-topbar__actions {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .admin-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-order__head,
+  .admin-order__item,
+  .admin-order__footer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .admin-status-panel,
+  .admin-status-form {
+    width: 100%;
+    min-width: 0;
+    max-width: none;
+    flex-basis: auto;
+  }
+
+  .admin-status-form .admin-field,
+  .admin-status-form .admin-button,
+  .admin-order__delete-form .admin-button {
+    width: 100%;
+  }
+
+  .admin-status-form .admin-field select {
+    min-width: 0;
+  }
+}

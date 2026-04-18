@@ -1,0 +1,186 @@
+.about-page {
+  margin-top: clamp(82px, 8vw, 118px);
+  margin-bottom: clamp(30px, 5vw, 60px);
+}
+
+.about-hero {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: clamp(18px, 3.8vw, 34px) 0 clamp(14px, 2.8vw, 24px);
+}
+
+.about-hero__content {
+  max-width: 760px;
+}
+
+.about-kicker,
+.about-card__label {
+  display: inline-block;
+  margin: 0 0 16px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: rgba(255, 166, 0, 0.507);
+  color: white;
+  font-size: clamp(11px, 1vw, 14px);
+  font-family: "Unbounded-VariableFont_wght", sans-serif;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.about-kicker {
+  background: rgb(237, 235, 220);
+  color: orange;
+}
+
+.about-title,
+.about-card h2,
+.about-banner__body h2 {
+  margin: 0;
+  color: black;
+  font-size: clamp(28px, 4vw, 56px);
+  line-height: 1.05;
+  font-family: "Unbounded-VariableFont_wght", sans-serif;
+}
+
+.about-lead,
+.about-card p,
+.about-list li,
+.about-banner__body p {
+  font-size: clamp(13px, 1.1vw, 16px);
+  line-height: 1.7;
+  font-family: "Unbounded-VariableFont_wght", sans-serif;
+  color: #4d412e;
+}
+
+.about-lead {
+  margin: 20px 0 0;
+  max-width: 690px;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.about-card,
+.about-banner {
+  background: rgb(237, 235, 220);
+  border-radius: 28px;
+  padding: clamp(22px, 3vw, 32px);
+  box-shadow: 0 14px 30px rgba(52, 35, 8, 0.08);
+}
+
+.about-card--accent {
+  background: linear-gradient(160deg, rgb(255, 188, 82) 0%, rgb(255, 154, 25) 100%);
+}
+
+.about-card--accent .about-card__label {
+  background: rgba(255, 255, 255, 0.24);
+  color: white;
+}
+
+
+
+
+.about-card--accent h2,
+.about-card--accent p {
+  color: white;
+}
+
+.about-card h2,
+.about-banner__body h2 {
+  font-size: clamp(20px, 2vw, 30px);
+  margin-bottom: 16px;
+}
+
+.about-list {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.about-list li {
+  margin-bottom: 12px;
+}
+
+.about-card--image {
+  min-height: 320px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  background: linear-gradient(160deg, rgb(92, 58, 27) 0%, rgb(63, 39, 18) 100%);
+  overflow: hidden;
+}
+
+.about-card--image .about-card__label {
+  background: orange;
+  color: white;
+  align-self: flex-start;
+}
+
+.about-card--image h2,
+.about-card--image p {
+  color: white;
+}
+
+.about-banner {
+  margin-top: 24px;
+  min-height: 280px;
+  display: flex;
+  align-items: center;
+  background-image:
+    linear-gradient(105deg, rgba(237, 235, 220, 0.94) 0%, rgba(237, 235, 220, 0.88) 55%, rgba(237, 235, 220, 0.58) 100%),
+    url("../media/images/big-cart.webp");
+  background-size: cover;
+  background-position: center;
+}
+
+.about-banner__body {
+  max-width: 720px;
+}
+
+.about-grid--bottom {
+  grid-template-columns: minmax(0, 2fr) minmax(280px, 1fr);
+  margin-top: 24px;
+}
+
+@media (max-width: 960px) {
+  .about-grid,
+  .about-grid--bottom {
+    grid-template-columns: 1fr;
+  }
+
+  .about-card--image {
+    min-height: auto;
+  }
+}
+
+@media (max-width: 640px) {
+  .about-page {
+    margin-top: 74px;
+  }
+
+  .about-hero {
+    padding: 16px 0 14px;
+  }
+
+  .about-card,
+  .about-banner {
+    border-radius: 22px;
+  }
+
+  .about-card__label,
+  .about-kicker {
+    width: auto;
+    max-width: 100%;
+    white-space: normal;
+    word-break: normal;
+    overflow-wrap: anywhere;
+  }
+
+  .about-card--image .about-card__label {
+    display: inline-flex;
+    align-self: flex-start;
+  }
+}
